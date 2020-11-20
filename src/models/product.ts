@@ -24,6 +24,11 @@ Product.init(
             type: new DataTypes.DECIMAL(5,2),
             allowNull:true,
         },
+
+        
+
+        
+
     },
     
     {

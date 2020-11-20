@@ -1,5 +1,7 @@
 import {Model, DataTypes} from 'sequelize';
 import {  database} from "../databases";
+import { productsRoutes } from '../routes/products.routes';
+import { Product } from './product';
 
 
 export class Provider extends Model{
@@ -30,6 +32,11 @@ Provider.init(
         allowNull: false,
     }
 },
+
+
 {tableName:'providers',
 sequelize:database,}
 );
+
+Provider.hasMany(Product);
+Product.belongsTo(Provider);

@@ -1,5 +1,6 @@
 import {Request, Response  } from "express";
 import { Product } from "../models/product";
+import { Provider } from "../models/provider";
 
 
 
@@ -25,7 +26,12 @@ class ProductsController {
     public async getproductById(req: Request, res: Response){
         try {
             const id = req.params.id;
-            const product: Product | null = await Product.findByPk(id);
+            const product: Product | null = await Product.findOne({
+                where: {
+                    id: id
+                },
+                include: Provider
+            });
        
             
 
